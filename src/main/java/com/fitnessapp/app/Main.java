@@ -1,6 +1,7 @@
 package com.fitnessapp.app;
 
 import com.fitnessapp.model.Exercise;
+import com.fitnessapp.model.ProgressResult;
 import com.fitnessapp.model.User;
 import com.fitnessapp.model.Workout;
 import com.fitnessapp.model.WorkoutExercise;
@@ -28,24 +29,41 @@ public class Main {
         WorkoutExercise secondBenchPress = workoutService.addExerciseToWorkout(secondWorkout, benchPress);
         workoutService.addSetToExercise(secondBenchPress, 80, 10);
 
-        double volumeDifference = progressService.calculateVolumeDifference(firstBenchPress, secondBenchPress);
-        double progressPercent = progressService.calculateVolumeProgressPercent(firstBenchPress, secondBenchPress);
-        double roundedProgressPercent = progressService.roundToTwoDecimals(progressPercent);
+        ProgressResult progressResult = progressService.compareExerciseByDate(
+                user,
+                "Bench Press",
+                LocalDate.of(2026, 7, 1),
+                LocalDate.of(2026, 7, 8),
+                workoutService
+        );
 
         Workout foundWorkout = workoutService.findWorkoutByDate(user, LocalDate.of(2026, 7, 1));
 
         if (foundWorkout != null) {
-            System.out.println("Found workout volume: " + foundWorkout.getTotalVolume());
+            WorkoutExercise foundExercise = workoutService.findExerciseInWorkout(foundWorkout, "Bench Press");
+
+            if (foundExercise != null) {
+                System.out.println("Found exercise: " + foundExercise.getExercise().getName());
+                System.out.println("Found exercise volume: " + foundExercise.getTotalVolume());
+            } else {
+                System.out.println("Exercise not found in workout");
+            }
         } else {
             System.out.println("Workout not found");
         }
-
 
         System.out.println("User: " + user.getName());
         System.out.println("User workouts: " + user.getWorkouts().size());
         System.out.println("First workout volume: " + firstWorkout.getTotalVolume());
         System.out.println("Second workout volume: " + secondWorkout.getTotalVolume());
-        System.out.println("Volume difference: " + volumeDifference);
-        System.out.println("Progress percent: " + roundedProgressPercent + "%");
+
+        if (progressResult != null) {
+            System.out.println("Old volume: " + progressResult.getOldVolume());
+            System.out.println("New volume: " + progressResult.getNewVolume());
+            System.out.println("Volume difference: " + progressResult.getVolumeDifference());
+            System.out.println("Progress percent: " + progressResult.getProgressPercent() + "%");
+        } else {
+            System.out.println("Progress result not found");
+        }
     }
 }

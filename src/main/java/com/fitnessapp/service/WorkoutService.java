@@ -8,10 +8,9 @@ import com.fitnessapp.model.WorkoutExercise;
 
 import java.time.LocalDate;
 
-
 public class WorkoutService {
 
-    public Workout createWorkoutForUser(User user, LocalDate date){
+    public Workout createWorkoutForUser(User user, LocalDate date) {
         Workout workout = new Workout(date);
         user.addWorkout(workout);
         return workout;
@@ -23,7 +22,7 @@ public class WorkoutService {
         return workoutExercise;
     }
 
-    public SetEntry addSetToExercise(WorkoutExercise workoutExercise, double weight, int reps){
+    public SetEntry addSetToExercise(WorkoutExercise workoutExercise, double weight, int reps) {
         SetEntry set = new SetEntry(weight, reps);
         workoutExercise.addSet(set);
         return set;
@@ -33,6 +32,16 @@ public class WorkoutService {
         for (Workout workout : user.getWorkouts()) {
             if (workout.getDate().equals(date)) {
                 return workout;
+            }
+        }
+
+        return null;
+    }
+
+    public WorkoutExercise findExerciseInWorkout(Workout workout, String exerciseName) {
+        for (WorkoutExercise workoutExercise : workout.getExercises()) {
+            if (workoutExercise.getExercise().getName().equalsIgnoreCase(exerciseName)) {
+                return workoutExercise;
             }
         }
 
