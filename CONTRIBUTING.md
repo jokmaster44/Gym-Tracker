@@ -75,7 +75,7 @@ Test names should describe behavior.
 Bad:
 
 ```java
-test1() 
+test1()
 ```
 
 Good:
