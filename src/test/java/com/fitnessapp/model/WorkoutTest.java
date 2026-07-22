@@ -19,7 +19,7 @@ public class WorkoutTest {
      *
      * Steps:
      * 1. Create workout.
-     * 2. Create two exercises.
+     * 2. Create three exercises.
      * 3. Add one set to each exercise.
      * 4. Add exercises to workout.
      * 5. Call getTotalVolume().
@@ -29,6 +29,7 @@ public class WorkoutTest {
      */
     @Test
     void testGetTotalVolume_should_return_total_workout_volume() {
+
         // Arrange
         Workout workout = new Workout(LocalDate.of(2026, 7, 20));
 

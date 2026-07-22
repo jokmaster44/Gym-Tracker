@@ -39,6 +39,4 @@ build/
 .DS_Store
 
 ### Local project files ###
-AI_PROJECT_GUIDE.md
-CHANGELOG.md
 .idea/

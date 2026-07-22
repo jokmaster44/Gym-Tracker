@@ -2,6 +2,8 @@
 
 ## Phase 1: Domain Model
 
+Status: In progress
+
 Build the core Java classes that describe the gym tracker domain.
 
 Main focus:
@@ -14,12 +16,23 @@ Main focus:
 
 ## Phase 2: Unit Tests
 
+Status: In progress
+
 Add tests for important domain logic and service calculations.
 
 Main focus:
 - volume calculation tests
 - progress calculation tests
 - workout history search tests
+
+Current coverage:
+- exercise muscle group behavior
+- user workout behavior
+- set volume and text formatting
+- workout exercise total volume
+- workout total volume
+- workout service behavior
+- progress service behavior
 
 ## Phase 3: Spring Boot
 

@@ -23,7 +23,7 @@ public class ProgressResult {
         return newVolume;
     }
 
-    public double getVolumeDifference(){
+    public double getVolumeDifference() {
         return volumeDifference;
     }
 

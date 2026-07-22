@@ -23,7 +23,7 @@ public class WorkoutExerciseTest {
      *
      * Result state:
      * - Returned volume is 1300.
-    */
+     */
     @Test
     void testGetTotalVolume_should_return_total_volume_in_exercise() {
 
