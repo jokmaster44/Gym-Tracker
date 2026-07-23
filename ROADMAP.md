@@ -33,6 +33,10 @@ Current coverage:
 - workout total volume
 - workout service behavior
 - progress service behavior
+- training cycle target weight behavior
+- training cycle recommendation behavior
+- monthly training plan behavior
+- training cycle validation behavior
 
 ## Phase 3: Spring Boot
 
