@@ -1,5 +1,6 @@
 package com.fitnessapp.model;
 
+import com.fitnessapp.model.enums.MuscleGroup;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -31,10 +32,10 @@ public class ExerciseTest {
         Exercise exercise = new Exercise("Bench Press");
 
         // Act
-        exercise.addMuscleGroup("Chest");
+        exercise.addMuscleGroup(MuscleGroup.CHEST);
 
         // Assert
         assertEquals(1, exercise.getMuscleGroups().size());
-        assertEquals("Chest", exercise.getMuscleGroups().get(0));
+        assertEquals(MuscleGroup.CHEST, exercise.getMuscleGroups().get(0));
     }
 }

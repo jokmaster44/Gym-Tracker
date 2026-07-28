@@ -45,6 +45,30 @@ public class TrainingCycleServiceTest {
     }
 
     /**
+     * Testcase: Should round target weight down to available gym weight.
+     *
+     * Steps:
+     * 1. Create TrainingCycleService.
+     * 2. Calculate target weight for 101 kg and 80%.
+     *
+     * Result state:
+     * - Raw target weight is 80.8 kg.
+     * - Available target weight is rounded down to 80 kg.
+     */
+    @Test
+    void testCalculateTargetWeight_should_round_down_to_available_weight() {
+
+        // Arrange
+        TrainingCycleService trainingCycleService = new TrainingCycleService();
+
+        // Act
+        double targetWeight = trainingCycleService.calculateTargetWeight(101, 80);
+
+        // Assert
+        assertEquals(80, targetWeight);
+    }
+
+    /**
      * Testcase: Should generate training load recommendation.
      *
      * Steps:

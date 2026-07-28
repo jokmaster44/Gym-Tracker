@@ -1,18 +1,20 @@
 package com.fitnessapp.model;
 
+import com.fitnessapp.model.enums.MuscleGroup;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class Exercise {
     private String name;
-    private List<String> muscleGroups;
+    private List<MuscleGroup> muscleGroups;
 
     public Exercise(String name) {
         this.name = name;
         this.muscleGroups = new ArrayList<>();
     }
 
-    public void addMuscleGroup(String muscleGroup) {
+    public void addMuscleGroup(MuscleGroup muscleGroup) {
         muscleGroups.add(muscleGroup);
     }
 
@@ -20,7 +22,7 @@ public class Exercise {
         return name;
     }
 
-    public List<String> getMuscleGroups() {
+    public List<MuscleGroup> getMuscleGroups() {
         return muscleGroups;
     }
 }

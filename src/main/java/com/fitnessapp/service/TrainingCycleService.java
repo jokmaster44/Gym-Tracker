@@ -9,12 +9,23 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TrainingCycleService {
+    private static final double MIN_PLATE_WEIGHT = 1.25;
+    private static final double BARBELL_WEIGHT_STEP = MIN_PLATE_WEIGHT * 2;
 
     public double calculateTargetWeight(double oneRepMax, double percent) {
         validateOneRepMax(oneRepMax);
         validatePercent(percent);
 
-        return oneRepMax * percent / 100;
+        double rawTargetWeight = oneRepMax * percent / 100;
+        return roundDownToAvailableWeight(rawTargetWeight);
+    }
+
+    public double roundDownToAvailableWeight(double weight) {
+        if (weight < 0) {
+            throw new IllegalArgumentException("Weight must be greater than or equal to 0");
+        }
+
+        return Math.floor(weight / BARBELL_WEIGHT_STEP) * BARBELL_WEIGHT_STEP;
     }
 
     public TrainingSessionType getSessionType(int frequencyPerWeek, int sessionNumber) {
