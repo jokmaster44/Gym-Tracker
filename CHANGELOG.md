@@ -38,6 +38,15 @@ This project does not have released versions yet.
 - Added monthly training plan generation.
 - Added input validation for training cycle generation.
 - Added unit tests for `TrainingCycleService`.
+- Added `MuscleGroup` enum.
+- Added `TrainingDay` model.
+- Added `WeeklyTrainingPlan` model.
+- Added `ExerciseCatalogService`.
+- Added `TrainingPlanService`.
+- Added unit tests for `WeeklyTrainingPlan`.
+- Added unit tests for `ExerciseCatalogService`.
+- Added unit tests for `TrainingPlanService`.
+- Added target weight rounding to available gym plate increments.
 
 ### Changed
 
@@ -45,6 +54,7 @@ This project does not have released versions yet.
 - Updated Maven `groupId` to `com.fitnessapp`.
 - Moved `WorkoutServiceTest` to the `service` test package.
 - Removed custom month and day-of-week enums in favor of Java standard date/time types when needed.
+- Changed exercise muscle groups from text values to `MuscleGroup` enum values.
 
 ### Not Added Yet
 

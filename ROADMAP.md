@@ -12,6 +12,10 @@ Main focus:
 - Exercise
 - WorkoutExercise
 - SetEntry
+- MuscleGroup
+- TrainingDay
+- WeeklyTrainingPlan
+- exercise catalog
 - relationships between entities
 
 ## Phase 2: Unit Tests
@@ -37,6 +41,9 @@ Current coverage:
 - training cycle recommendation behavior
 - monthly training plan behavior
 - training cycle validation behavior
+- weekly training plan behavior
+- exercise catalog filtering behavior
+- training day exercise selection behavior
 
 ## Phase 3: Spring Boot
 
